@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const PORT = process.env.PORT || 5000;
 
 const userRoutes = require("../routes/userRoutes");
 
@@ -10,6 +11,6 @@ app.use(express.json()); // MUST be before routes
 
 app.use("/todos", userRoutes);
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
