@@ -5,6 +5,9 @@
   "engines": {
     "node": "20.x"
   },
+  "optionalDependencies": {
+  "lightningcss-linux-x64-gnu": "^1.25.1"
+},
   "type": "module",
   "scripts": {
     "dev": "vite",
