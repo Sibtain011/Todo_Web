@@ -9,7 +9,7 @@ function App() {
 
   // GET TODOS
   const getTodos = async () => {
-    const res = await fetch("http://localhost:5000/todos");
+    const res = await fetch("https://todo-web-dk4u.onrender.com/todos");
     const data = await res.json();
     setTodos(data);
   };
@@ -23,7 +23,7 @@ function App() {
 
     if (!title) return;
 
-    await fetch("http://localhost:5000/todos", {
+    await fetch("https://todo-web-dk4u.onrender.com/todos", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title })
@@ -36,7 +36,7 @@ function App() {
   // DELETE TODO
   const deleteTodo = async (id) => {
 
-    await fetch(`http://localhost:5000/todos/${id}`, {
+    await fetch(`https://todo-web-dk4u.onrender.com/todos/${id}`, {
       method: "DELETE"
     });
 
@@ -46,7 +46,7 @@ function App() {
   // UPDATE TODO
   const updateTodo = async () => {
 
-    await fetch(`http://localhost:5000/todos/${editId}`, {
+    await fetch(`https://todo-web-dk4u.onrender.com/todos/${editId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -69,7 +69,7 @@ function App() {
   // TOGGLE COMPLETE
   const toggleComplete = async (todo) => {
 
-    await fetch(`http://localhost:5000/todos/${todo.id}`, {
+    await fetch(`https://todo-web-dk4u.onrender.com/todos/${todo.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
