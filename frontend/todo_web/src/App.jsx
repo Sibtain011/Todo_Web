@@ -9,7 +9,7 @@ function App() {
 
   // GET TODOS
   const getTodos = async () => {
-    const res = await fetch("https://todo-web-dk4u.onrender.com/todos");
+    const res = await fetch("https://todo-web-u6ne.onrender.com");
     const data = await res.json();
     setTodos(data);
   };
