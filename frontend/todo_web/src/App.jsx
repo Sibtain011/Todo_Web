@@ -67,19 +67,28 @@ function App() {
   };
 
   // TOGGLE COMPLETE
-  const toggleComplete = async (todo) => {
+ const toggleComplete = async (todo) => {
+  try {
+    const res = await fetch(
+      `https://todo-web-u6ne.onrender.com/${todo.id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: todo.title,
+          completed: !todo.completed,
+        }),
+      }
+    );
 
-    await fetch(`https://todo-web-u6ne.onrender.com/${todo.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: todo.title,
-        completed: !todo.completed
-      })
-    });
+    const data = await res.json();
+    console.log("Updated:", data);
 
     getTodos();
-  };
+  } catch (err) {
+    console.error("Error:", err);
+  }
+};
 
   return (
   <div className="min-h-screen bg-gray-200 flex justify-center items-start pt-10">
@@ -121,9 +130,9 @@ function App() {
           </button>
         )}
 
-        <button className="bg-gray-500 text-white px-5 rounded">
+        {/* <button className="bg-gray-500 text-white px-5 rounded">
           SearchOFF
-        </button>
+        </button> */}
 
       </div>
 
