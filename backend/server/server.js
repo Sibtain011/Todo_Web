@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // MUST be before routes
 
-app.use("/todos", userRoutes);
+app.use("/", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
