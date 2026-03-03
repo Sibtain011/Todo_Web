@@ -36,15 +36,15 @@ exports.gettodos = async (req, res) => {
 exports.updatetodo = async (req, res) => {
   try {
     const id = req.params.id;
-    const title = req.body?.title;
+    const { title, completed } = req.body;
 
     if (!title) {
       return res.status(400).json({ error: "Title is required" });
     }
 
     const updatedtodo = await pool.query(
-      "UPDATE todos SET title = $1 WHERE id = $2 RETURNING *",
-      [title, id]
+      "UPDATE todos SET title = $1, completed = $2 WHERE id = $3 RETURNING *",
+      [title, completed, id]
     );
 
     res.json(updatedtodo.rows[0]);
