@@ -96,13 +96,13 @@ function App() {
     <div className="w-1/2 bg-gray-100 rounded-lg border-4 border-purple-300 p-6">
 
       <h1 className="text-2xl font-bold mb-4">
-        TO DO LIST
+        SAVE YOUR TASK
       </h1>
 
       {/* Input Section */}
 
       <div className="bg-purple-200 text-center font-semibold p-3 mb-4 rounded">
-        Search Mode Activated
+        TODAY'S TASK
       </div>
 
       <div className="flex gap-3 mb-6">
